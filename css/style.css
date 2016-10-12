@@ -1,0 +1,35 @@
+.flex{
+	display: flex;
+
+}
+
+article{
+	position: relative;
+}
+
+.font_raleway{
+	font-family: 'Raleway', sans-serif;
+}
+
+.white_text{
+	color: white;
+}
+
+.results{
+	position: relative;
+	width: 50%;
+	flex-wrap: wrap;
+}
+
+.pic{
+	min-width: 100%;
+}
+
+.excerpt{
+	position: absolute;
+	width: 100%;
+	background: rgba(0, 0, 0, .5);
+	bottom: 0;
+	left: 0;
+	
+}
