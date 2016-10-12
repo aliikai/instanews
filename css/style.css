@@ -1,5 +1,6 @@
 *{
 	box-sizing: border-box;
+	background-size: cover;
 }
 
 .flex{
@@ -28,7 +29,7 @@ article{
 }
 
 .pic{
-	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .excerpt{
