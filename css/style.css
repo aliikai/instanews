@@ -1,3 +1,7 @@
+*{
+	box-sizing: border-box;
+}
+
 .flex{
 	display: flex;
 
@@ -5,6 +9,9 @@
 
 article{
 	position: relative;
+	display: none;
+	flex-basis: 50%;
+	height: 400px;
 }
 
 .font_raleway{
@@ -17,12 +24,11 @@ article{
 
 .results{
 	position: relative;
-	width: 50%;
 	flex-wrap: wrap;
 }
 
 .pic{
-	min-width: 100%;
+	background-size: 100%;
 }
 
 .excerpt{
