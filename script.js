@@ -1,45 +1,49 @@
 $(document).ready(function(){
 
-$(".button").on("click", function(e) {
-	var userId = $("input:text").val()
-	e.preventDefault();
-	 var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-	url += '?' + $.param({
-	  'api-key': "3e39bfc099b64244a0f0f73b7758551e"
-	 
+$("select").on("change",function(){
+		var topic = $(this).val();
+		console.log(topic);
+		var url = "https://api.nytimes.com/svc/topstories/v2/"+topic+".json";
+		url += '?' + $.param({
+			'api-key': "7f8be26ffb894c5cb92af647e0a60239"
+		});
+		$.ajax({
+			url: url,
+			method: 'GET',
+		}).done(function(data) {
+			console.log(data);
+			buildArticle(data);
+		}).fail(function(err) {
+			throw err;
+		});
 	});
+
+
+
 function buildArticle(data){
-	
- 		var docArrays = data.response.docs;
- 		for (i in docArrays){
- 			if(data.response.docs[i].multimedia.length > 0){
- 				var clone = $("article").eq(0).clone();
+	$(".results").html("");
+	var docArrays = data.results;
+	for (i in docArrays){
+		if(data.results[i].multimedia.length > 0){
+			var clone = $("article").eq(0).clone();
+			var excerpt = data.results[i].abstract;
+			var headline = data.results[i].title;
+			var web_url = data.results[i].url;
+			var img = data.results[i].multimedia[4].url
+		//link & excerpt & pic
+		$(clone).css("background-image", "url("+img+")");
+		$(clone).children(".excerpt").children("p").html(excerpt);
+		$(clone).children(".excerpt").children("a").attr("href", web_url);
 
- 				var excerpt = data.response.docs[i].lead_paragraph;
- 				var headline = data.response.docs[i].headline.main;
-	  			var web_url = data.response.docs[i].web_url;
-	  			var img = "https://static01.nyt.com/"+(data.response.docs[i].multimedia[1].url)
-				//link & excerpt & pic
-				$(clone).css("background-image", "url("+img+")");
-				$(clone).children(".excerpt").children("p").html(excerpt);
-				$(clone).children(".excerpt").children("a").attr("href", web_url);
-
-				$(".results").append(clone);
-				$("article").show();
- 			}
+		$(".results").append(clone);
+		$("article").show();
 		}
-		$('article').eq(0).remove();
 	}
+	$('article').eq(0).hide();
+	};
 
-	$.ajax({
-	  url: url,
-	  method: 'GET',
-	}).done(function(data) {
-		buildArticle(data);
-	}).fail(function(err) {
-	  throw err;
-	});
-	    });
-	  });
+	
+});
+
 
 
