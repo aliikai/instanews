@@ -1,5 +1,6 @@
 *{
 	box-sizing: border-box;
+	background-size: cover;
 }
 
 .flex{
@@ -7,10 +8,23 @@
 
 }
 
+
+.header{
+	position: relative;
+	background-color: black;
+	height: 150px;
+	align-items: center;
+}
+
+.logo{
+	height: 100px;
+	padding-left: 30px;
+}
+
 article{
 	position: relative;
 	display: none;
-	flex-basis: 50%;
+	flex-basis: 25%;
 	height: 400px;
 }
 
@@ -28,7 +42,8 @@ article{
 }
 
 .pic{
-	background-size: 100%;
+	background-repeat: no-repeat;
+
 }
 
 .excerpt{
@@ -37,5 +52,10 @@ article{
 	background: rgba(0, 0, 0, .5);
 	bottom: 0;
 	left: 0;
+	padding: 10px;
 	
+}
+
+.excerpt_text{
+	padding: 0, 10px, 0, 10px;
 }
