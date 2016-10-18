@@ -3,7 +3,8 @@
 $(document).ready(function(){
 
 $("select").on("change",function(){
-	$('.pre_logo').hide()
+	$('.pre_logo').removeClass("pre_logo")
+	$('.initial_position').removeClass("initial_position")
 		var topic = $(this).val();
 		console.log(topic);
 		var url = "https://api.nytimes.com/svc/topstories/v2/"+topic+".json";
