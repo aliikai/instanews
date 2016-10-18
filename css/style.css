@@ -1,3 +1,7 @@
+body{
+	background-color: black;
+}
+
 *{
 	box-sizing: border-box;
 	background-size: cover;
@@ -5,9 +9,7 @@
 
 .flex{
 	display: flex;
-
 }
-
 
 .header{
 	position: relative;
@@ -28,8 +30,8 @@ article{
 	height: 400px;
 }
 
-.font_raleway{
-	font-family: 'Raleway', sans-serif;
+.font_opensans{
+	font-family: 'Open Sans', sans-serif;
 }
 
 .white_text{
@@ -58,4 +60,13 @@ article{
 
 .excerpt_text{
 	padding: 0, 10px, 0, 10px;
+}
+
+.initial_position{
+	height: 50em;
+	align-items: center;
+}
+
+.pre_logo{
+	height: 18.750em;
 }
