@@ -32,10 +32,22 @@ article{
 
 .font_opensans{
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+.bold_font{
+	font-weight: 600;
 }
 
 .white_text{
 	color: white;
+
+}
+
+.footer_text{
+	color: #c1c1c1;
+	font-size: 1.5em;
+	margin-left: 50px;
 }
 
 .results{
@@ -71,6 +83,6 @@ article{
 	height: 18.750em;
 }
 
-.hide{
-	
+.space{
+	height: 100%;
 }
