@@ -1,11 +1,16 @@
+//Remove class that sets logo and selector to middle for initial central position
+
 $(document).ready(function(){
 
 $("select").on("change",function(){
+	$('.pre_logo').hide()
 		var topic = $(this).val();
 		console.log(topic);
 		var url = "https://api.nytimes.com/svc/topstories/v2/"+topic+".json";
 		url += '?' + $.param({
 			'api-key': "7f8be26ffb894c5cb92af647e0a60239"
+		});
+		$( ".initial_position" ).hide( "fast", function() {
 		});
 		$.ajax({
 			url: url,
@@ -18,12 +23,12 @@ $("select").on("change",function(){
 		});
 	});
 
-
-
 function buildArticle(data){
+
 	$(".results").html("");
 	var docArrays = data.results;
 	for (i in docArrays){
+
 		if(data.results[i].multimedia.length > 0){
 			var clone = $("article").eq(0).clone();
 			var excerpt = data.results[i].abstract;
@@ -38,12 +43,10 @@ function buildArticle(data){
 		$(".results").append(clone);
 		$("article").show();
 		}
+		
 	}
 	$('article').eq(0).hide();
 	};
-
 	
 });
-
-
 
