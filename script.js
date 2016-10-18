@@ -3,8 +3,11 @@
 $(document).ready(function(){
 
 $("select").on("change",function(){
-	$('.pre_logo').removeClass("pre_logo")
-	$('.initial_position').removeClass("initial_position")
+	$('.pre_logo').removeClass("pre_logo");
+	$('.initial_position').removeClass("initial_position");
+	$('.label').hide();
+	$('.footer_text').hide();
+
 		var topic = $(this).val();
 		console.log(topic);
 		var url = "https://api.nytimes.com/svc/topstories/v2/"+topic+".json";
@@ -38,8 +41,9 @@ function buildArticle(data){
 			var img = data.results[i].multimedia[4].url
 		//link & excerpt & pic
 		$(clone).css("background-image", "url("+img+")");
-		$(clone).children(".excerpt").children("p").html(excerpt);
-		$(clone).children(".excerpt").children("a").attr("href", web_url);
+		$(clone).children("a").children(".space").children(".excerpt").children("p").html(excerpt);
+		$(clone).children("a").attr("href", web_url);
+
 
 		$(".results").append(clone);
 		$("article").show();
@@ -47,6 +51,7 @@ function buildArticle(data){
 		
 	}
 	$('article').eq(0).hide();
+
 	};
 	
 });
