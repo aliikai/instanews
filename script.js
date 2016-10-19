@@ -7,6 +7,7 @@ $("select").on("change",function(){
 	$('.initial_position').removeClass("initial_position");
 	$('.label').hide();
 	$('.footer_text').hide();
+	$('.footer_container').hide();
 
 		var topic = $(this).val();
 		console.log(topic);
